@@ -1,9 +1,19 @@
+import PageNav from "../components/PageNav";
+import ProjectCard from "../components/ProjectCard";
+
 const Projects = () => {
-    return (
-        <div>
-            <h1>Projects</h1>
-        </div>
-    );
+  return (
+    <div>
+      <PageNav />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-6 py-4">
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+      </div>
+    </div>
+  );
 }
 
 export default Projects;

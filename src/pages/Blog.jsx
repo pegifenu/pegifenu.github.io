@@ -1,9 +1,13 @@
+import BlogCard from "../components/BlogCard";
+
 const Blog = () => {
-    return (
-        <div>
-            <h1>Blog</h1>
-        </div>
-    );
+  return (
+    <div className="flex flex-col gap-6 px-6 py-4">
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
+  </div>
+  );
 }
 
 export default Blog;
