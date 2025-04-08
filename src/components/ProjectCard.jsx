@@ -6,7 +6,7 @@ const ProjectCard = () => {
         <img
           src="https://placehold.co/600x400"
           alt="Project"
-          className="w-full h-48 object-cover"
+          className="w-full object-cover"
         />
 
         {/* Bottom Overlay Bar */}
