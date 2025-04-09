@@ -14,8 +14,7 @@ function App() {
     <div className="min-h-screen bg-gradient-to-b from-[#0B0B15] to-[#29344D]">
         <Navbar />
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
         </Routes>
