@@ -17,14 +17,14 @@ const PageNav = () => {
     <>
 
       <div className="flex flex-col bg-[#0B0B15] text-white px-10 gap-2">
-        <div className="flex flex-col sm:flex-row justify-between py-2 gap-2">
+        <div className="flex flex-col md:flex-row justify-between py-2 gap-4">
           <div className="text-2xl font-bold">Projects</div>
             
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <input
               type="text"
               placeholder="Search projects..."
-              className="bg-white placeholder-gray-400 text-black px-2 rounded-sm"
+              className="bg-white placeholder-gray-400 text-black min-w-70 px-2 py-2 rounded-sm"
             />
 
             <Select
