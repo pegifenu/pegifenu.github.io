@@ -1,7 +1,7 @@
 const ProjectCard = () => {
   return (
     <>
-      <div className="relative rounded-sm overflow-hidden group text-white">
+      <div className="relative rounded-sm overflow-hidden border border-[#3F5475] text-white">
         {/* Main Image */}
         <img
           src="https://placehold.co/600x400"

@@ -3,8 +3,10 @@ import { SiKofi } from "react-icons/si";
 
 const ProfileCard = () => {
   return (
-    <div className="flex flex-col w-full bg-[#0B0B15] gap-8 p-10 overflow-hidden rounded-sm text-white">
-      <img src="https://placehold.co/500x500" className="place-self-center object-cover px-5 overflow-hidden rounded-xl"></img>
+    <div className="flex flex-col w-full bg-[#0B0B15] gap-8 p-10 overflow-hidden rounded-sm border border-[#3F5475] text-white">
+      <div className="place-self-center overflow-hidden rounded-sm">
+        <img src="https://placehold.co/500x500" className="w-full object-cover"></img>
+      </div>
 
       <div className="flex flex-col gap-2">
         <div>
@@ -18,23 +20,23 @@ const ProfileCard = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-5 w-full place-items-center">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+      <div className="flex flex-wrap gap-2 w-full place-items-center">
+        <a href="https://github.com/yourusername" target="_blank" className="p-2 border border-[#3F5475] rounded-sm">
           <FaGithub className="" size={30} />
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://linkedin.com/in/yourusername" target="_blank" className="p-2 border border-[#3F5475] rounded-sm">
           <FaLinkedin className="" size={30} />
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://linkedin.com/in/yourusername" target="_blank" className="p-2 border border-[#3F5475] rounded-sm">
           <FaYoutube className="" size={30} />
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://linkedin.com/in/yourusername" target="_blank" className="p-2 border border-[#3F5475] rounded-sm">
           <FaItchIo className="" size={30} />
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://linkedin.com/in/yourusername" target="_blank" className="p-2 border border-[#3F5475] rounded-sm">
           <FaSteam className="" size={30} />
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://linkedin.com/in/yourusername" target="_blank" className="p-2 border border-[#3F5475] rounded-sm">
           <SiKofi className="" size={30} />
         </a>
         

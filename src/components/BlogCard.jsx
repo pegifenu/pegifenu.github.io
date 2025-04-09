@@ -1,7 +1,7 @@
 const BlogCard = () => {
   return (
     <>
-      <div className="flex flex-row h-50 bg-[#0B0B15] text-white rounded-sm overflow-hidden">
+      <div className="flex flex-row h-50 bg-[#0B0B15] text-white rounded-sm overflow-hidden border border-[#3F5475]">
       {/* Image */}
       <img
         src="https://placehold.co/200x200"
