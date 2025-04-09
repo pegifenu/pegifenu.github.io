@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 
-import Navbar from './components/Navbar'
+import Navbar from './components/NavBar'
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -11,7 +11,7 @@ import Blog from './pages/Blog'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#29344D] to-[#0B0B15]">
+    <div className="min-h-screen bg-gradient-to-b from-[#0B0B15] to-[#29344D]">
         <Navbar />
         <Routes>
             <Route path="/" element={<Home />} />

@@ -48,7 +48,7 @@ const PageNav = () => {
             </div>
 
           </div>
-            <div className="flex pb-4 gap-4 text-sm">
+            <div className="flex pb-4 gap-5 text-sm">
             <button className="">All</button>
             <button className="">Web Apps</button>
             <button className="">Mobile Apps</button>
