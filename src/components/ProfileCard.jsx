@@ -3,7 +3,7 @@ import { SiKofi } from "react-icons/si";
 
 const ProfileCard = () => {
   return (
-    <div className="flex flex-col w-1/4 h-auto bg-[#0B0B15] gap-10 p-10 overflow-hidden rounded-sm text-white">
+    <div className="flex flex-col w-full bg-[#0B0B15] gap-10 p-10 overflow-hidden rounded-sm text-white">
       <img src="https://placehold.co/500x500" className="place-self-center object-cover px-5 overflow-hidden rounded-xl"></img>
 
       <div>
@@ -14,7 +14,7 @@ const ProfileCard = () => {
         <p>pegifenu@gmail.com</p>
       </div>
 
-      <div className="flex flex-row place-self-center gap-4">
+      <div className="flex flex-wrap gap-5 w-full place-items-center">
         <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
           <FaGithub className="" size={30} />
         </a>
