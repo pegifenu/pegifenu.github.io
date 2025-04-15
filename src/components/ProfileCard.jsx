@@ -3,7 +3,7 @@ import { SiKofi } from "react-icons/si";
 
 const ProfileCard = () => {
   return (
-    <div className="flex flex-col bg-[#0B0B15] gap-6 p-10 overflow-hidden rounded-sm border border-[#3F5475] text-white">
+    <div className="flex flex-col w-full bg-[#0B0B15] gap-6 p-10 overflow-hidden rounded-sm border border-[#3F5475] text-white">
       <div className="place-self-center overflow-hidden rounded-sm w-50">
         <img src="https://placehold.co/500x500" className="w-full object-cover"></img>
       </div>
