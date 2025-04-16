@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const navLinks = [
@@ -9,16 +9,18 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-1 flex justify-between items-center px-6 py-2 bg-[#0B0B15] text-white text-lg">
-        <Link to="/" className="text-xl">Daphne Feng</Link>
+        <NavLink to="/" className="text-xl">Daphne Feng</NavLink>
         <div className="flex gap-6">
         {navLinks.map(({ label, path }, index) => (
-            <Link
+            <NavLink
                 key={index}
                 to={path}
-                className="hover:drop-shadow-[0px_0px_5px_rgba(255,255,255,1)] cursor-pointer"
+                className={({ isActive }) => isActive ? "font-bold cursor-pointer" : "hover:drop-shadow-[0px_0px_5px_rgba(255,255,255,1)] cursor-pointer"}
+
+
             >
                 {label}
-            </Link>
+            </NavLink>
         ))}
         </div>
     </div>

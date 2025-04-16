@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from "react"; 
 import Select from 'react-select'
 
@@ -134,8 +135,12 @@ const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
                 <div className="flex pb-4 gap-5 text-sm">
                 {categories.map((category) => (
                     <button 
-                    onClick={() => changeCategory(category.value)}
-                    className="hover:drop-shadow-[0px_0px_5px_rgba(255,255,255,1)] cursor-pointer"
+                        onClick={() => changeCategory(category.value)}
+                        className={`${
+                            selectedCategory === category.value
+                            ? "font-bold cursor-pointer"
+                            : "hover:drop-shadow-[0px_0px_5px_rgba(255,255,255,1)] cursor-pointer"
+                        }`}
                     >
                         {category.label}
                     </button>
