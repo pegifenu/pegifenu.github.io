@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { Dialog } from "radix-ui";
 import Markdown from "react-markdown";
 
@@ -14,6 +15,7 @@ const Blog = () => {
             excerpt: "Hello, World!",
             tags: [TagEnum.REACT, TagEnum.TAILWIND],
             file: "firstBlog.md",
+            slug: "firstBlog"
         },
     ]
 
@@ -27,33 +29,20 @@ const Blog = () => {
     }
 
     return (
-        <Dialog.Root>
         
         <div className="flex flex-col gap-6 px-10 py-4">
             {blogs.map((blog, index) => (
-            <Dialog.Trigger asChild key={index}>
-                <div onClick={() => openBlog(blog.file)}>
-                <BlogCard
-                    image={blog.image}
-                    title={blog.title}
-                    date={blog.date}
-                    excerpt={blog.excerpt}
-                    tags={blog.tags}
-                />
-                </div>
-            </Dialog.Trigger>
+                <Link to={`/blog/${blog.slug}`} key={index}>
+                    <BlogCard
+                        image={blog.image}
+                        title={blog.title}
+                        date={blog.date}
+                        excerpt={blog.excerpt}
+                        tags={blog.tags}
+                    />
+                </Link>
             ))}
         </div>
-
-                <Dialog.Portal>
-                <Dialog.Overlay />
-                <Dialog.Content>
-                <Dialog.Title />
-                <Dialog.Description />
-                <Dialog.Close />
-                </Dialog.Content>
-            </Dialog.Portal>
-        </Dialog.Root>
 
         
     );

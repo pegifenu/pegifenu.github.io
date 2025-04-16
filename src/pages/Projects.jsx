@@ -10,7 +10,7 @@ import { CategoryEnum, SortEnum, TagEnum } from "../constants";
 const Projects = () => {
     const projects = [
         {
-            image: "/gameboxd-logo-solid.png",
+            image: "/images/gameboxd-logo-solid.png",
             title: "Gameboxd",
             description: "An old website.",
             dateEnded: "2025-03-13",
@@ -26,7 +26,7 @@ const Projects = () => {
             tags: [TagEnum.LATEX],
         },
         {
-            image: "/website-v1.png",
+            image: "/images/website-v1.png",
             title: "Personal Website V1",
             description: "An old website.",
             dateEnded: "2024-12-01",
