@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Dialog } from "radix-ui";
-import BlogCard from "../components/BlogCard";
-
 import Markdown from "react-markdown";
+
+import BlogCard from "../components/BlogCard";
+import { CategoryEnum, SortEnum, TagEnum } from "../constants";
 
 const Blog = () => {
     const blogs = [
@@ -10,8 +11,8 @@ const Blog = () => {
             image: "https://placehold.co/200x200",
             title: "My First Post!",
             date: "April 7, 2025",
-            excerpt: "A short description or excerpt from the blog post. Keep it brief and enticing to encourage clicks.",
-            tags: ["React", "Tailwind", "WebDev"],
+            excerpt: "Hello, World!",
+            tags: [TagEnum.REACT, TagEnum.TAILWIND],
             file: "firstBlog.md",
         },
     ]

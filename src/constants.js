@@ -20,7 +20,8 @@ const TagEnum = Object.freeze({
     HTML: "HTML",
     CSS: "CSS",
     JAVASCRIPT: "JavaScript",
-    LATEX: "LaTeX"
+    LATEX: "LaTeX",
+    TAILWIND: "Tailwind"
 });
 
 export { CategoryEnum, SortEnum, TagEnum };

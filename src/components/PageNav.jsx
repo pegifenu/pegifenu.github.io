@@ -1,4 +1,4 @@
-import { useState } from "react"; 
+import { useState, useEffect } from "react"; 
 import Select from 'react-select'
 
 import { CategoryEnum, SortEnum, TagEnum } from "../constants";
@@ -7,6 +7,7 @@ const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
 
     const [selectedCategory, setSelectedCategory] = useState(CategoryEnum.ALL);
     const [selectedTags, setSelectedTags] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
     
     const categories = Object.entries(CategoryEnum).map(([key, value]) => ({
         value: value,
@@ -23,6 +24,33 @@ const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
         label: value
     }));
       
+    useEffect(() => {
+        let filtered = [...projects];
+    
+        // Filter by category
+        if (selectedCategory !== CategoryEnum.ALL) {
+            filtered = filtered.filter(project => project.category === selectedCategory);
+        }
+    
+        // Filter by tags
+        if (selectedTags.length > 0) {
+            const tagValues = selectedTags.map(tag => tag.value);
+            filtered = filtered.filter(project => 
+                project.tags.some(tag => tagValues.includes(tag))
+            );
+        }
+    
+        // Filter by search query
+        const cleanedQuery = searchQuery.trim().replace(/\s+/g, "").toLowerCase();
+        if (cleanedQuery !== "") {
+            filtered = filtered.filter(project =>
+                project.title.trim().replace(/\s+/g, "").toLowerCase().includes(cleanedQuery) ||
+                project.description.trim().replace(/\s+/g, "").toLowerCase().includes(cleanedQuery)
+            );
+        }
+    
+        setDisplayedProjects(filtered);
+    }, [selectedCategory, selectedTags, searchQuery]);
 
     function changeCategory(category) {
         setDisplayedProjects(projects.filter((project) => {
@@ -33,12 +61,12 @@ const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
 
     // Update displayed projects based on selected tags
     function filterByTags(selectedTags) {
-        if (!selectedTags || selectedTags.length === 0) {
+        if (!selectedTags || selectedTags.length == 0) {
             // If no tags are selected, display all projects
             changeCategory(selectedCategory);
         } else {
-            setDisplayedProjects(displayedProjects.filter((project) => {
-                return selectedTags.every(tag => project.tags.includes(tag.value));
+            setDisplayedProjects(projects.filter((project) => {
+                return selectedTags.some(tag => project.tags.includes(tag.value));
             }));
         }
         setSelectedTags(selectedTags);
@@ -72,9 +100,11 @@ const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
                 
             <div className="flex flex-col md:flex-row gap-4">
                 <input
-                type="text"
-                placeholder="Search projects..."
-                className="bg-white placeholder-gray-400 text-black min-w-70 px-2 py-2 rounded-sm"
+                    type="text"
+                    placeholder="Search projects..."
+                    className="bg-white placeholder-gray-400 text-black min-w-70 px-2 py-2 rounded-sm"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                 />
 
                 <Select

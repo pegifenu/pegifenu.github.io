@@ -1,4 +1,4 @@
-const ProjectCard = ({ image, title, desc, tags }) => {
+const ProjectCard = ({ image, title, description, tags }) => {
     return (
 
         <div className="flex flex-col h-full relative rounded-sm overflow-hidden border border-[#3F5475] text-white">
@@ -13,7 +13,7 @@ const ProjectCard = ({ image, title, desc, tags }) => {
             <div className="flex flex-col justify-between flex-grow bottom-0 left-0 w-full bg-[#0B0B15] px-4 py-3 space-y-2">
                 <div>
                     <h3 className="text-lg font-semibold">{title}</h3>
-                    <p className="text-sm text-gray-300">{desc}</p>
+                    <p className="text-sm text-gray-300">{description}</p>
                 </div>
                 <div className="flex flex-wrap gap-2 text-xs">
                     {tags.map((tag, index) => (
