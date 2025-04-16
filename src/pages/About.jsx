@@ -12,6 +12,13 @@ const About = () => {
         
         <div className="flex flex-col text-white gap-5">
             <p>I’m an aspiring software engineer currently pursuing a degree in Computer Science at UCLA.</p>
+            <p>
+                Outside of computer science, I enjoy and am improving my skills in digital 2D/3D art/animation, music performance and production, 
+                and writing good stories.
+            </p>
+            <p>
+                I like to learn and make new things. Feel free to contact me if you are interested in working on a project together.
+            </p>
         </div>
 
         
