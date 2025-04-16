@@ -1,31 +1,66 @@
+import { useState } from "react"; 
 import Select from 'react-select'
 
-const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
-    const tags = [
-        { value: 'value1', label: 'value1' },
-        { value: 'value2', label: 'value2' },
-        { value: 'value3', label: 'value3' }
-    ];  
+import { CategoryEnum, SortEnum, TagEnum } from "../constants";
 
-    const sortOptions = [
-        { value: 'value1', label: 'Most Recent' },
-        { value: 'value2', label: 'value2' },
-        { value: 'value3', label: 'value3' }
-    ];  
+const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
+
+    const [selectedCategory, setSelectedCategory] = useState(CategoryEnum.ALL);
+    const [selectedTags, setSelectedTags] = useState([]);
     
-    const categories = [
-        { value: "all",  label: "All" },
-        { value: "webapp", label: "Web Apps" },
-        { value: "mobileapp", label: "Mobile Apps" },
-        { value: "game", label: "Games" },
-        { value: "research", label: "Research" }
-    ];
+    const categories = Object.entries(CategoryEnum).map(([key, value]) => ({
+        value: value,
+        label: value
+    }));
+
+    const sortOptions = Object.entries(SortEnum).map(([key, value]) => ({
+        value: key,
+        label: value
+    }));
+      
+    const tags = Object.entries(TagEnum).map(([key, value]) => ({
+        value: value,
+        label: value
+    }));
+      
 
     function changeCategory(category) {
         setDisplayedProjects(projects.filter((project) => {
-            return category == "all" || project.category == category;
+            return category == CategoryEnum.ALL || project.category == category;
         }));
-        
+        setSelectedCategory(category);
+    }
+
+    // Update displayed projects based on selected tags
+    function filterByTags(selectedTags) {
+        if (!selectedTags || selectedTags.length === 0) {
+            // If no tags are selected, display all projects
+            changeCategory(selectedCategory);
+        } else {
+            setDisplayedProjects(displayedProjects.filter((project) => {
+                return selectedTags.every(tag => project.tags.includes(tag.value));
+            }));
+        }
+        setSelectedTags(selectedTags);
+    }
+
+    // Update displayed projects based on selected sort option
+    function handleSortChange(selectedOption) {
+        let sortedProjects = [...displayedProjects];
+
+        if (selectedOption.label == SortEnum.RECENT) {
+            sortedProjects.sort((a, b) => new Date(b.dateEnded) - new Date(a.dateEnded));
+        } else if (selectedOption.label == SortEnum.OLDEST) {
+            sortedProjects.sort((a, b) => new Date(a.dateEnded) - new Date(b.dateEnded));
+        } else {
+            sortedProjects.sort((a, b) => {
+                const indexA = projects.findIndex(project => project.title === a.title);
+                const indexB = projects.findIndex(project => project.title === b.title);
+                return indexA - indexB;
+            });
+        }
+
+        setDisplayedProjects(sortedProjects);
     }
 
     return (
@@ -43,29 +78,37 @@ const PageNav = ({ projects, displayedProjects, setDisplayedProjects }) => {
                 />
 
                 <Select
-                className="basic-multi-select text-black rounded-sm"
-                classNamePrefix="select"
-                isClearable={true}
-                name="sortOptions"
-                options={sortOptions}
-                placeholder="Sort by"
+                    defaultValue={sortOptions[0]}
+                    className="basic-multi-select text-black rounded-sm"
+                    classNamePrefix="select"
+                    isClearable={false}
+                    name="sortOptions"
+                    options={sortOptions}
+                    placeholder="Sort by"
+                    onChange={handleSortChange}
                 />
 
                 <Select
-                className="basic-multi-select text-black rounded-sm"
-                classNamePrefix="select"
-                isClearable={true}
-                isMulti
-                name="tagOptions"
-                options={tags}
-                placeholder="Tags"
+                    className="basic-multi-select text-black rounded-sm"
+                    classNamePrefix="select"
+                    isClearable={true}
+                    isMulti
+                    name="tagOptions"
+                    options={tags}
+                    placeholder="Tags"
+                    onChange={filterByTags}
                 />
             </div>
             
             </div>
                 <div className="flex pb-4 gap-5 text-sm">
                 {categories.map((category) => (
-                    <button onClick={() => changeCategory(category.value)}>{category.label}</button>
+                    <button 
+                    onClick={() => changeCategory(category.value)}
+                    className="hover:drop-shadow-[0px_0px_5px_rgba(255,255,255,1)] cursor-pointer"
+                    >
+                        {category.label}
+                    </button>
                 ))}
             </div>
         </div>
