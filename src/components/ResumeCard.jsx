@@ -6,27 +6,26 @@ import experiences from "../data/resumeItems";
 
 const ResumeCard = ({experience}) => {
     return (
-        <div className="flex flex-col bg-[#0B0B15] text-white rounded-sm overflow-hidden border border-[#3F5475]">
-            <div className="flex flex-row">
+        <div className="flex flex-col bg-[#0B0B15] text-white rounded-sm overflow-hidden border border-[#3F5475] w-full mb-5 p-3 gap-1">
+            <div className="flex flex-row gap-3">
                 <img
                     src={experience.image}
                     alt="Blog Cover"
-                    className="w-1/6 object-cover"
+                    className="w-20 object-cover"
                 />
-                <div className="px-4 py-3">
+                <div className="">
 
-                    <h3 className="text-lg font-semibold text-blue-600">{experience.year}</h3>
-                    <h4 className="text-md font-bold">{experience.title}</h4>
-                    <p className="text-gray-600">{experience.description}</p>
+                    <h3 className="text-lg font-semibold">{experience.company}</h3>
+                    <h4 className="text-md">{experience.title}</h4>
+                    <p className="">{experience.description}</p>
                 </div>
             </div>
 
 
                 {/* Accordion */}
                 <Accordion.Root
-                type="single"
-                collapsible
-                className="mt-4"
+                    type="single"
+                    collapsible
                 >
 
                     <Accordion.Item value="item-1">
