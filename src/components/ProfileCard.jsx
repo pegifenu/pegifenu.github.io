@@ -41,17 +41,15 @@ const ProfileCard = () => {
             <img src="https://placehold.co/500x500" className="w-full object-cover"></img>
         </div>
 
-        <h1 className="text-center text-4xl">Daphne Feng</h1>
-
         <div className="flex flex-col gap-2">
             <div>
-            <p>PROFESSIONAL INQUIRIES</p>
-            <p>dlfeng048@gmail.com</p>
-            <p>cirsquerd@g.ucla.com</p>
+                <p className="font-bold">PROFESSIONAL INQUIRIES</p>
+                <p>d.feng@g.ucla.com</p>
+            
             </div>
             <div>
-            <p>OTHER</p>
-            <p>pegifenu@gmail.com</p>
+                <p className="font-bold">OTHER</p>
+                <p>pegifenu@gmail.com</p>
             </div>
         </div>
 

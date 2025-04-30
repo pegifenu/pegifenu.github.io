@@ -4,6 +4,7 @@ const Navbar = () => {
     const navLinks = [
         { label: "About", path: "/" },
         { label: "Projects", path: "/projects" },
+        { label: "Resume", path: "/resume" },
         { label: "Blog", path: "/blog" },
     ];
 
@@ -16,8 +17,6 @@ const Navbar = () => {
                 key={index}
                 to={path}
                 className={({ isActive }) => isActive ? "font-bold cursor-pointer" : "hover:drop-shadow-[0px_0px_5px_rgba(255,255,255,1)] cursor-pointer"}
-
-
             >
                 {label}
             </NavLink>

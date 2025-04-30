@@ -2,40 +2,15 @@ import { useState, useEffect } from "react";
 import { Dialog } from "radix-ui";
 import { motion, AnimatePresence } from "motion/react";
 
-import PageNav from "../components/PageNav";
+import ProjectNav from "../components/ProjectNav";
 import ProjectCard from "../components/ProjectCard";
 import ProjectDialog from "../components/ProjectDialog";
+
+import projects from "../data/projects";
 
 import { CategoryEnum, SortEnum, TagEnum } from "../constants";
 
 const Projects = () => {
-    const projects = [
-        {
-            image: "/images/gameboxd-logo-solid.png",
-            title: "Gameboxd",
-            description: "An old website.",
-            dateEnded: "2025-03-13",
-            category: CategoryEnum.WEBAPP,
-            tags: [TagEnum.MONGODB, TagEnum.EXPRESSJS, TagEnum.REACT, TagEnum.NODEJS, TagEnum.HTML, TagEnum.CSS, TagEnum.JAVASCRIPT],
-        },
-        {
-            image: "https://placehold.co/300x150",
-            title: "Heavy Tailed Reward Distributions for Multiplayer Bandits",
-            description: "Research paper.",
-            dateEnded: "2025-03-30",
-            category: CategoryEnum.RESEARCH,
-            tags: [TagEnum.LATEX],
-        },
-        {
-            image: "/images/website-v1.png",
-            title: "Personal Website V1",
-            description: "An old website.",
-            dateEnded: "2024-12-01",
-            category: CategoryEnum.WEBAPP,
-            tags: [TagEnum.HTML, TagEnum.CSS, TagEnum.JAVASCRIPT],
-        },
-    ]
-
     const [selectedProject, setSelectedProject] = useState(null);
     const [filters, setFilters] = useState({
         search: "",
@@ -92,7 +67,7 @@ const Projects = () => {
 
     return (
         <div>
-            <PageNav
+            <ProjectNav
                 filters={filters}
                 setFilters={setFilters}
             />
