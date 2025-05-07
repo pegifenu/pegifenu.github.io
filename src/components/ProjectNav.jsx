@@ -6,7 +6,7 @@ import Filter from "./Filter";
 
 import { CategoryEnum, SortEnum, TagEnum } from "../constants";
 
-const PageNav = ({ filters, setFilters }) => {
+const ProjectNav = ({ filters, setFilters }) => {
     
     const categories = Object.entries(CategoryEnum).map(([key, value]) => ({
         value: value,
@@ -15,14 +15,14 @@ const PageNav = ({ filters, setFilters }) => {
 
     return (
         <>
-            <div className="flex flex-col bg-[#0B0B15] text-white px-10 gap-2">
+            <div className="flex flex-col bg-dark-blue text-white px-10 gap-2">
                 <div className="flex flex-col md:flex-row justify-between py-2 gap-4">
                 <div className="text-2xl font-bold">Projects</div>
                     
                 <Filter filters={filters} setFilters={setFilters} />
                 
                 </div>
-                    <div className="flex pb-4 gap-5 text-sm">
+                    <div className="flex pb-4 gap-5 text-sm justify-between md:justify-start">
                     {categories.map((category, index) => (
                         <button 
                             key={index}
@@ -43,4 +43,4 @@ const PageNav = ({ filters, setFilters }) => {
     );
 }
 
-export default PageNav;
+export default ProjectNav;

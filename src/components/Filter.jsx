@@ -29,17 +29,18 @@ const Filter = ({ filters, setFilters }) => {
 
     return (
         <div className="flex flex-col md:flex-row gap-4">
+
             <input
                 type="text"
                 placeholder="Search projects..."
-                className="bg-white placeholder-gray-400 text-black min-w-70 px-2 py-2 rounded-sm"
+                className="bg-white placeholder-gray-400 text-black w-full md:min-w-70 px-2 py-2 rounded-sm"
                 value={filters.search}
                 onChange={(e) => setFilters({ ...filters, search: e.target.value })}
             />
 
             <Select
                 defaultValue={sortOptions[0]}
-                className="basic-multi-select text-black rounded-sm"
+                className="basic-multi-select text-black rounded-sm w-full md:min-w-30"
                 classNamePrefix="select"
                 isClearable={false}
                 name="sortOptions"
@@ -49,7 +50,7 @@ const Filter = ({ filters, setFilters }) => {
             />
 
             <Select
-                className="basic-multi-select text-black rounded-sm"
+                className="basic-multi-select text-black rounded-sm w-full md:min-w-30"
                 classNamePrefix="select"
                 isClearable={true}
                 isMulti

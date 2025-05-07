@@ -73,7 +73,8 @@ const Projects = () => {
             />
 
             <Dialog.Root>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-10 py-4">
+                <div className="mx-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto py-4 max-w-500">
                         <AnimatePresence mode="popLayout" initial={false}>
                             {console.log(filters)}
                             {displayedProjects.map((project, index) => (
@@ -108,9 +109,11 @@ const Projects = () => {
                                 No projects were found under this filter.
                                 </motion.div>
                             )}
-                             
+                            
                         </AnimatePresence>
+                    </div>
                 </div>
+                
                 {selectedProject && <ProjectDialog selectedProject={selectedProject} />}
             </Dialog.Root>    
         </div>

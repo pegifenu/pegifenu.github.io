@@ -13,7 +13,7 @@ import BlogPost from "./pages/BlogPost";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0B0B15] to-[#29344D]">
+    <div className="min-h-screen bg-gradient-to-b from-dark-blue to-medium-blue">
         <Navbar />
         <Routes>
             <Route path="/" element={<About />} />

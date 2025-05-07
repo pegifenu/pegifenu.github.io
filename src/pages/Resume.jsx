@@ -7,7 +7,7 @@ import experiences from "../data/resumeItems";
 const Experience = () => {      
       return (
         <div className="px-10 py-4">
-
+            <div className="text-2xl font-bold text-white">Experience</div>
             <div className="flex flex-col">
             {experiences.map((experience, index) => (
                 <div key={index} className="flex flex-row gap-10">
@@ -22,7 +22,6 @@ const Experience = () => {
                 </div>
 
                     {/* Content */}
-
                     <ResumeCard experience={experience} />
                 </div>
             ))}
