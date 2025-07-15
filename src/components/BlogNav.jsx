@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 import Filter from "./Filter";
 
 const BlogNav = () => {
-  return (
-    <Filter />
-  )
-}
+  return <Filter />;
+};
 
-export default BlogNav
+export default BlogNav;

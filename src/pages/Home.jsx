@@ -5,6 +5,6 @@ const Home = () => {
       <p>Welcome to our site!</p>
     </div>
   );
-}
+};
 
 export default Home;

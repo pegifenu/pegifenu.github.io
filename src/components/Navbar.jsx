@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -17,7 +17,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const renderNavLinks = (className) => (
+  const renderNavLinks = (className) =>
     navLinks.map(({ label, path }) => (
       <NavLink
         key={path}
@@ -29,46 +29,44 @@ const Navbar = () => {
       >
         {label}
       </NavLink>
-    ))
-  );
+    ));
 
   return (
-    <div className="text-white text-lg">
-        
-        <div className="sticky top-0 bg-dark-blue flex justify-between items-center px-6 py-2 z-20">
-            <NavLink to="/" className="text-xl">Daphne Feng</NavLink>
+    <div className="sticky top-0 text-lg text-white">
+      <div className="bg-dark-blue z-20 flex items-center justify-between px-6 py-2">
+        <NavLink to="/" className="text-xl">
+          pegifenu
+        </NavLink>
 
-            {/* Hamburger Icon (mobile only) */}
-            <button
-                className="md:hidden text-white"
-                onClick={onToggleMenu}
-                aria-label="Toggle menu"
-            >
-            <HamburgerMenuIcon className="w-6 h-6" />
-            </button>
+        {/* Hamburger Icon (mobile only) */}
+        <button
+          className="text-white md:hidden"
+          onClick={onToggleMenu}
+          aria-label="Toggle menu"
+        >
+          <HamburgerMenuIcon className="h-6 w-6" />
+        </button>
 
-            {/* Desktop links */}
-            <div className="hidden md:flex gap-6 z-1">
-                {renderNavLinks("cursor-pointer")}
-            </div>
+        {/* Desktop links */}
+        <div className="z-1 hidden gap-6 md:flex">
+          {renderNavLinks("cursor-pointer")}
         </div>
+      </div>
 
       {/* Mobile menu */}
-        <AnimatePresence>
-            {isMenuOpen && (
-                <motion.div
-                    initial={{ y: "-100%" }}
-                    animate={{ y: 0 }}
-                    exit={{ y: "-100%" }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute w-full flex flex-col px-6 py-4 gap-3 bg-dark-blue md:hidden z-10"
-            >
-                {renderNavLinks("cursor-pointer")}
-            </motion.div>
-            )}
-        </AnimatePresence>
-
-
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.2 }}
+            className="bg-dark-blue absolute z-10 flex w-full flex-col gap-3 px-6 py-4 md:hidden"
+          >
+            {renderNavLinks("cursor-pointer")}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
