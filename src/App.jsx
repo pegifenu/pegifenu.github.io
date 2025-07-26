@@ -12,7 +12,6 @@ import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import { easeInOut } from "motion/react";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -44,10 +43,6 @@ function App() {
       fpsLimit: 120,
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "repulse",
-          },
           onHover: {
             enable: true,
             mode: "bubble",
@@ -59,14 +54,6 @@ function App() {
             duration: 2, // how long the effect lasts
             opacity: 0, // target opacity (less than 1 = more transparent)
             size: 0, // (optional) slightly increase or maintain size
-          },
-          repulse: {
-            distance: 200,
-            duration: 0.5,
-            factor: 100,
-            speed: 1,
-            maxSpeed: 50,
-            easing: easeInOut,
           },
         },
       },
@@ -81,7 +68,7 @@ function App() {
             default: "bounce",
           },
           random: false,
-          speed: 0.1,
+          speed: 0.05,
           straight: false,
         },
         number: {
@@ -91,13 +78,24 @@ function App() {
           value: 200,
         },
         opacity: {
-          value: 0.7,
+          animation: {
+            enable: true,
+            speed: 0.5,
+            sync: false,
+          },
+          value: { min: 0.1, max: 0.5 },
+          random: true,
+        },
+        shadow: {
+          enable: true,
+          color: "#ffffff", // or a soft color glow like "#00ffff"
+          blur: 5, // adjust blur radius
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 0.5, max: 2 },
+          value: { min: 0.2, max: 2 },
         },
       },
       detectRetina: true,

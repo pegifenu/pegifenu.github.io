@@ -84,7 +84,7 @@ const Projects = () => {
       <ProjectNav filters={filters} setFilters={setFilters} />
 
       <Dialog.Root>
-        <div className="mx-10">
+        <div className="z-10 mx-10">
           <div className="mx-auto grid max-w-300 grid-cols-1 gap-5 py-4 sm:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout" initial={false}>
               {console.log(filters)}
@@ -95,7 +95,7 @@ const Projects = () => {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0 }}
-                    transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+                    transition={{ type: "spring", bounce: 0, duration: 0.3 }}
                     onClick={() => setSelectedProject(project)}
                     whileHover={{ y: -5 }}
                   >

@@ -70,7 +70,7 @@ const ProfileCard = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             key={name}
-            transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+            transition={{ type: "spring", bounce: 0, duration: 0.3 }}
             whileHover={{ y: -5 }}
           >
             <a

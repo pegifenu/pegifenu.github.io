@@ -32,8 +32,8 @@ const Navbar = () => {
     ));
 
   return (
-    <div className="sticky top-0 text-lg text-white">
-      <div className="bg-dark-blue z-20 flex items-center justify-between px-6 py-2">
+    <div className="sticky top-0 z-20 text-lg text-white">
+      <div className="bg-dark-blue/80 flex items-center justify-between px-6 py-2 backdrop-blur-md">
         <NavLink to="/" className="text-xl">
           pegifenu
         </NavLink>
@@ -48,7 +48,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop links */}
-        <div className="z-1 hidden gap-6 md:flex">
+        <div className="z-1 hidden gap-7 md:flex">
           {renderNavLinks("cursor-pointer")}
         </div>
       </div>

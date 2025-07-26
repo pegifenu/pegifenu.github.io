@@ -8,9 +8,9 @@ const About = () => {
       <div className="flex flex-col gap-5 text-white">
         <h1 className="text-4xl">pegifenu</h1>
         <p>
-          Hi. I go by pegifenu on the Internet, but you can call me Peg. I’m an
-          aspiring software engineer currently pursuing a degree in computer
-          science.
+          Hi. I go by pegifenu on the Internet, but you can call me Peg or
+          Glycol. I’m an aspiring software engineer currently pursuing a degree
+          in computer science.
         </p>
         <p>
           Outside of computer science, I enjoy and am improving my skills in

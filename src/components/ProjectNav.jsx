@@ -13,14 +13,14 @@ const ProjectNav = ({ filters, setFilters }) => {
   }));
 
   return (
-    <>
-      <div className="bg-dark-blue flex flex-col gap-2 px-20 text-white">
+    <div className="mx-10">
+      <div className="bg-dark-blue z-10 mx-auto flex max-w-300 flex-col gap-2 text-white">
         <div className="flex flex-col justify-between gap-4 py-2 md:flex-row">
           <div className="text-2xl font-bold">Projects</div>
 
           <Filter filters={filters} setFilters={setFilters} />
         </div>
-        <div className="flex justify-between gap-5 pb-4 text-sm md:justify-start">
+        <div className="flex justify-between gap-7 pb-4 text-sm md:justify-start">
           {categories.map((category, index) => (
             <button
               key={index}
@@ -38,7 +38,7 @@ const ProjectNav = ({ filters, setFilters }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
