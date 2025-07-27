@@ -8,7 +8,7 @@ import ProjectDialog from "../components/ProjectDialog";
 
 import projects from "../data/projects";
 
-import { CategoryEnum, SortEnum, TagEnum } from "../constants";
+import { CategoryEnum, SortEnum } from "../constants";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -52,7 +52,7 @@ const Projects = () => {
             .replace(/\s+/g, "")
             .toLowerCase()
             .includes(cleanedQuery) ||
-          project.description
+          project.summary
             .trim()
             .replace(/\s+/g, "")
             .toLowerCase()
@@ -77,7 +77,7 @@ const Projects = () => {
     if (JSON.stringify(filtered) !== JSON.stringify(displayedProjects)) {
       setDisplayedProjects(filtered);
     }
-  }, [projects, filters]);
+  }, [displayedProjects, filters]);
 
   return (
     <div>
@@ -87,7 +87,6 @@ const Projects = () => {
         <div className="z-10 mx-10">
           <div className="mx-auto grid max-w-300 grid-cols-1 gap-5 py-4 sm:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout" initial={false}>
-              {console.log(filters)}
               {displayedProjects.map((project, index) => (
                 <Dialog.Trigger asChild key={project.title}>
                   <motion.div
@@ -97,13 +96,13 @@ const Projects = () => {
                     exit={{ opacity: 0, scale: 0 }}
                     transition={{ type: "spring", bounce: 0, duration: 0.3 }}
                     onClick={() => setSelectedProject(project)}
-                    whileHover={{ y: -5 }}
+                    whileHover={{ y: -8 }}
                   >
                     <ProjectCard
                       key={index}
                       image={project.image}
                       title={project.title}
-                      description={project.description}
+                      description={project.summary}
                       tags={project.tags}
                     />
                   </motion.div>

@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Dialog } from "radix-ui";
-import Markdown from "react-markdown";
 
 import BlogCard from "../components/BlogCard";
-import { CategoryEnum, SortEnum, TagEnum } from "../constants";
+import { TagEnum } from "../constants";
 
 const Blog = () => {
   const blogs = [
@@ -29,18 +27,20 @@ const Blog = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 px-10 py-4">
-      {blogs.map((blog, index) => (
-        <Link to={`/blog/${blog.slug}`} key={index}>
-          <BlogCard
-            image={blog.image}
-            title={blog.title}
-            date={blog.date}
-            excerpt={blog.excerpt}
-            tags={blog.tags}
-          />
-        </Link>
-      ))}
+    <div className="mx-10">
+      <div className="mx-auto flex max-w-300 flex-col gap-6 py-10">
+        {blogs.map((blog, index) => (
+          <Link to={`/blog/${blog.slug}`} key={index}>
+            <BlogCard
+              image={blog.image}
+              title={blog.title}
+              date={blog.date}
+              excerpt={blog.excerpt}
+              tags={blog.tags}
+            />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

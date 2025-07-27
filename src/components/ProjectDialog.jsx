@@ -16,7 +16,10 @@ const ProjectDialog = ({ selectedProject }) => {
             </Dialog.Close>
           </div>
 
-          <Dialog.Description></Dialog.Description>
+          <Dialog.Description className="whitespace-pre-line text-white">
+            {selectedProject.summary}
+            <selectedProject.DescriptionComponent />
+          </Dialog.Description>
           <Dialog.Close />
         </Dialog.Content>
       </Dialog.Portal>

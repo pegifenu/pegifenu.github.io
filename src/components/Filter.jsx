@@ -1,63 +1,110 @@
-import Select from "react-select";
-
-import { CategoryEnum, SortEnum, TagEnum } from "../constants";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { SortEnum, TagEnum } from "../constants";
 
 const Filter = ({ filters, setFilters }) => {
-  const sortOptions = Object.entries(SortEnum).map(([key, value]) => ({
-    value: key,
-    label: value,
-  }));
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+  const [tagDropdownOpen, setTagDropdownOpen] = useState(false);
 
-  const tags = Object.entries(TagEnum).map(([key, value]) => ({
-    value: key,
-    label: value,
-  }));
+  const sortRef = useRef();
+  const tagRef = useRef();
 
-  const handleTagChange = (selectedOptions) => {
-    setFilters((prev) => ({
-      ...prev,
-      tags: selectedOptions ? selectedOptions.map((opt) => opt.label) : [],
-    }));
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!sortRef.current?.contains(e.target)) setSortDropdownOpen(false);
+      if (!tagRef.current?.contains(e.target)) setTagDropdownOpen(false);
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const updateSearch = (e) => {
+    setFilters((prev) => ({ ...prev, search: e.target.value }));
   };
 
-  const handleSortChange = (selectedOption) => {
-    setFilters((prev) => ({
-      ...prev,
-      sort: selectedOption.label,
-    }));
+  const handleSortChange = (value) => {
+    setFilters((prev) => ({ ...prev, sort: value }));
+    setSortDropdownOpen(false);
+  };
+
+  const handleTagChange = (value) => {
+    setFilters((prev) => {
+      const tags = prev.tags.includes(value)
+        ? prev.tags.filter((t) => t !== value)
+        : [...prev.tags, value];
+      return { ...prev, tags };
+    });
   };
 
   return (
-    <div className="flex flex-col gap-4 md:flex-row">
+    <div className="z-20 flex flex-col gap-4 md:flex-row">
+      {/* Search */}
       <input
         type="text"
         placeholder="Search projects..."
         className="w-full rounded-sm bg-white px-2 py-2 text-black placeholder-gray-400 md:min-w-70"
         value={filters.search}
-        onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+        onChange={updateSearch}
       />
 
-      <Select
-        defaultValue={sortOptions[0]}
-        className="basic-multi-select w-full rounded-sm text-black md:min-w-30"
-        classNamePrefix="select"
-        isClearable={false}
-        name="sortOptions"
-        options={sortOptions}
-        placeholder="Sort by"
-        onChange={handleSortChange}
-      />
+      {/* Sort Dropdown */}
+      {console.log(filters)}
+      <div className="relative w-full md:min-w-30" ref={sortRef}>
+        <button
+          onClick={() => setSortDropdownOpen((open) => !open)}
+          className="flex h-10 w-full items-center justify-between rounded-sm border border-gray-300 bg-white px-3 text-sm text-black"
+        >
+          {filters.sort}
+          <ChevronDownIcon />
+        </button>
 
-      <Select
-        className="basic-multi-select w-full rounded-sm text-black md:min-w-30"
-        classNamePrefix="select"
-        isClearable={true}
-        isMulti
-        name="tagOptions"
-        options={tags}
-        placeholder="Tags"
-        onChange={handleTagChange}
-      />
+        {sortDropdownOpen && (
+          <div className="absolute z-20 mt-1 w-full overflow-hidden rounded bg-white shadow">
+            {Object.entries(SortEnum).map(([key, value]) => (
+              <div
+                key={key}
+                onClick={() => handleSortChange(value)}
+                className={`cursor-pointer px-3 py-2 text-sm ${
+                  filters.sort === value
+                    ? "bg-light-blue text-white"
+                    : "hover:bg-light-blue/20 text-black"
+                }`}
+              >
+                {value}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Tag Selector */}
+      <div className="relative w-full md:min-w-30" ref={tagRef}>
+        <button
+          onClick={() => setTagDropdownOpen((open) => !open)}
+          className="flex h-10 w-full items-center justify-between rounded-sm border bg-white px-3 text-sm text-black"
+        >
+          {`${filters.tags.length} tag${filters.tags.length != 1 ? "s" : ""}`}
+          <ChevronDownIcon />
+        </button>
+
+        {tagDropdownOpen && (
+          <div className="absolute z-20 mt-1 max-h-48 w-full overflow-auto rounded-md bg-white shadow-lg">
+            {Object.entries(TagEnum).map(([key, value]) => (
+              <div
+                key={key}
+                onClick={() => handleTagChange(value)}
+                className={`cursor-pointer px-3 py-2 text-sm ${
+                  filters.tags?.includes(value)
+                    ? "bg-light-blue text-white"
+                    : "hover:bg-light-blue/20 text-black"
+                }`}
+              >
+                {value}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

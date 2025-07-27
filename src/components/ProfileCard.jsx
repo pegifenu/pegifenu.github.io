@@ -1,10 +1,4 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaYoutube,
-  FaItchIo,
-  FaSteam,
-} from "react-icons/fa";
+import { FaGithub, FaYoutube, FaItchIo, FaSteam } from "react-icons/fa";
 import { SiKofi } from "react-icons/si";
 import { motion } from "motion/react";
 
@@ -14,11 +8,6 @@ const ProfileCard = () => {
       name: "github",
       url: "https://github.com/pegifenu",
       icon: <FaGithub size={30} />,
-    },
-    {
-      name: "linkedin",
-      url: "https://www.linkedin.com/in/daphne-feng-b77023251/",
-      icon: <FaLinkedin size={30} />,
     },
     {
       name: "youtube",
@@ -77,7 +66,7 @@ const ProfileCard = () => {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-sm border border-[#3F5475] p-2"
+              className="border-light-blue block rounded-sm border p-2"
             >
               {icon}
             </a>
