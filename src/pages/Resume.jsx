@@ -13,7 +13,7 @@ const Experience = () => {
             <div key={index} className="flex flex-row gap-10">
               <div className="flex flex-col items-center">
                 {/* Dot */}
-                <div className="h-5 w-5 shrink-0 rounded-full border-4 border-white bg-blue-500"></div>
+                <div className="bg-light-blue h-5 w-5 shrink-0 rounded-full border-4 border-white"></div>
 
                 {/* Line to next dot */}
                 {index !== experiences.length - 1 && (

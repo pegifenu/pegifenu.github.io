@@ -2,8 +2,8 @@ import ProfileCard from "../components/ProfileCard";
 
 const About = () => {
   return (
-    <div className="mx-auto flex max-w-300 flex-col gap-10 px-20 py-20 md:flex-row">
-      <ProfileCard className="flex w-full flex-col gap-4 md:w-1/2 xl:w-1/3" />
+    <div className="rows-2 mx-auto flex max-w-300 flex-col gap-10 px-10 py-20 md:columns-2 md:flex-row">
+      <ProfileCard />
 
       <div className="flex flex-col gap-5 text-white">
         <h1 className="text-4xl">pegifenu</h1>

@@ -3,7 +3,6 @@ import { Dialog } from "radix-ui";
 import { Cross1Icon } from "@radix-ui/react-icons";
 
 const ProjectDialog = ({ selectedProject }) => {
-  console.log(selectedProject);
   return (
     <div>
       <Dialog.Portal>
