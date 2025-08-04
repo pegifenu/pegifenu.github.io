@@ -11,7 +11,7 @@ const ProjectDialog = ({ selectedProject }) => {
           <div className="flex items-center justify-between text-white">
             <Dialog.Title>{selectedProject.title}</Dialog.Title>
             <Dialog.Close>
-              <Cross1Icon className="text-gray-400 hover:text-gray-500" />
+              <Cross1Icon className="transition-duration-100 cursor-pointer text-gray-400 transition hover:text-white" />
             </Dialog.Close>
           </div>
 

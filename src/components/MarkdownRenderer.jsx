@@ -45,7 +45,7 @@ const CodeBlock = ({ language, code }) => {
 
 const InlineCode = ({ code }) => {
   return (
-    <code className="rounded bg-neutral-800 px-1.5 py-0.5 text-white">
+    <code className="bg-dark-blue rounded px-1.5 py-0.5 text-white">
       {code}
     </code>
   );

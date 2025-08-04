@@ -8,17 +8,18 @@ const ResumeCard = ({ experience }) => {
       <Accordion.Root type="single" collapsible>
         <Accordion.Item value="item-1">
           <Accordion.Header>
-            <Accordion.Trigger className="absolute top-3 right-3 p-1 text-white/50 transition hover:text-white">
-              <ChevronDownIcon className="h-6 w-6 cursor-pointer" aria-hidden />
+            <Accordion.Trigger className="AccordionTrigger absolute top-3 right-3 p-1 text-white/50 transition hover:text-white">
+              <ChevronDownIcon
+                className="AccordionChevron h-6 w-6 cursor-pointer"
+                aria-hidden
+              />
             </Accordion.Trigger>
           </Accordion.Header>
 
-          <div className="flex flex-row gap-3 pr-10">
-            {" "}
-            {/* leave space for arrow */}
+          <div className="flex flex-row gap-3">
             <img
               src={experience.image}
-              alt="Blog Cover"
+              alt="Item Cover"
               className="h-20 w-20"
             />
             <div className="flex-grow">
@@ -28,7 +29,7 @@ const ResumeCard = ({ experience }) => {
             </div>
           </div>
 
-          <Accordion.Content className="mt-3">
+          <Accordion.Content className="AccordionContent">
             <ul className="list-inside list-disc space-y-1 text-white">
               {experience.bulletList.map((item, index) => (
                 <li key={index}>{item}</li>
