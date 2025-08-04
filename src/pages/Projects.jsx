@@ -85,7 +85,7 @@ const Projects = () => {
 
       <Dialog.Root>
         <div className="z-10 mx-10">
-          <div className="mx-auto grid max-w-300 grid-cols-1 gap-5 py-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 py-4 sm:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout" initial={false}>
               {displayedProjects.map((project, index) => (
                 <Dialog.Trigger asChild key={project.title}>

@@ -3,16 +3,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MarkdownRenderer from "../components/MarkdownRenderer";
 
-// Slug to file map
-const slugToFileMap = {
-  firstBlog: "firstBlog.md",
-  anotherPost: "anotherPost.md",
-};
+import { blogs } from "../data/blogs";
 
 const BlogPost = () => {
   const { slug } = useParams();
   const [markdown, setMarkdown] = useState("");
-  const file = slugToFileMap[slug];
+  const blog = blogs.find((b) => b.slug === slug);
+  const file = blog.file;
 
   useEffect(() => {
     if (!file) return;
@@ -25,7 +22,7 @@ const BlogPost = () => {
     return (
       <div className="px-10 py-4 text-white">
         <div className="mx-auto max-w-3xl">
-          <h1 className="text-xl">404: Blog post not found</h1>
+          <h1 className="">404: Blog post not found.</h1>
         </div>
       </div>
     );
@@ -34,6 +31,8 @@ const BlogPost = () => {
   return (
     <div className="px-10 py-4 text-white">
       <div className="mx-auto max-w-3xl">
+        <div className="text-4xl font-bold">{blog.title}</div>
+        <div className="text-lg">{blog.date}</div>
         <MarkdownRenderer>{markdown}</MarkdownRenderer>
       </div>
     </div>

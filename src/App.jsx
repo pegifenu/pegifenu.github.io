@@ -104,7 +104,7 @@ function App() {
   );
 
   return (
-    <div className="from-dark-blue to-medium-blue relative min-h-screen bg-gradient-to-b">
+    <div className="from-dark-blue to-medium-blue h-screen min-h-screen overflow-auto bg-gradient-to-b">
       {init && (
         <Particles
           className="absolute inset-0 z-0"

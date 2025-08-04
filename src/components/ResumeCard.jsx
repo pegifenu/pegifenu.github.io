@@ -1,6 +1,12 @@
 import { Accordion } from "radix-ui";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 
+const formatDate = (dateString) => {
+  if (!dateString) return "Present";
+  const date = new Date(dateString);
+  return date.toLocaleString("default", { month: "long", year: "numeric" });
+};
+
 const ResumeCard = ({ experience }) => {
   return (
     <div className="border-light-blue bg-dark-blue relative mb-5 w-full overflow-hidden rounded-sm border p-3 text-white">
@@ -23,8 +29,18 @@ const ResumeCard = ({ experience }) => {
               className="h-20 w-20"
             />
             <div className="flex-grow">
-              <h3 className="text-lg font-semibold">{experience.company}</h3>
-              <h4 className="text-md italic">{experience.title}</h4>
+              <h3 className="text-lg">
+                <span className="font-semibold">{experience.title}</span> at{" "}
+                <span className="font-semibold">{experience.company}</span>
+              </h3>
+
+              <h4 className="text-md text-gray-400">
+                {formatDate(experience.startDate)} –{" "}
+                {formatDate(experience.endDate)}
+                <span className="mx-1">•</span>
+                {experience.location}
+              </h4>
+
               <p>{experience.description}</p>
             </div>
           </div>

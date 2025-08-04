@@ -7,7 +7,7 @@ import experiences from "../data/resumeItems";
 const Experience = () => {
   return (
     <div className="mx-10">
-      <div className="mx-auto max-w-300 py-10">
+      <div className="mx-auto max-w-6xl py-10">
         <div className="flex flex-col">
           {experiences.map((experience, index) => (
             <div key={index} className="flex flex-row gap-10">

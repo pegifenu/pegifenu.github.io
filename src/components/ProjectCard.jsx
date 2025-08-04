@@ -1,6 +1,6 @@
 const ProjectCard = ({ image, title, description, tags }) => {
   return (
-    <div className="relative flex h-full flex-col overflow-hidden rounded-sm border border-[#3F5475] text-white hover:cursor-pointer">
+    <div className="border-light-blue relative flex h-full flex-col overflow-hidden rounded-sm border text-white hover:cursor-pointer">
       {/* Main Image */}
       <img
         src={image}
