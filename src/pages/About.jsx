@@ -13,9 +13,9 @@ const About = () => {
           pursuing a degree in computer science.
         </p>
         <p>
-          Outside of computer science, I enjoy and am improving my skills in
-          mathematics, digital 2D/3D art/animation, music performance and
-          production, and reading/writing good stories.
+          Outside of computer science, I am interested in mathematics, digital
+          2D/3D art/animation, music performance and production, and
+          reading/writing good stories.
         </p>
         <p>
           Feel free to contact me if you are interested in working on a project

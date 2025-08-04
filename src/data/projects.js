@@ -1,8 +1,6 @@
 import { CategoryEnum, TagEnum } from "../constants";
 import WebsiteV1 from "../components/project_descriptions/WebsiteV1";
 import Gameboxd from "../components/project_descriptions/Gameboxd";
-import HeavyTail from "../components/project_descriptions/HeavyTail";
-
 const projects = [
   {
     image: "/images/gameboxd-logo-solid.png",
@@ -21,15 +19,6 @@ const projects = [
       TagEnum.CSS,
       TagEnum.JAVASCRIPT,
     ],
-  },
-  {
-    image: "https://placehold.co/300x150",
-    title: "Heavy Tailed Reward Distributions for Multiplayer Bandits",
-    summary: "Research paper.",
-    DescriptionComponent: HeavyTail,
-    dateEnded: "2025-03-30",
-    category: CategoryEnum.RESEARCH,
-    tags: [TagEnum.LATEX],
   },
   {
     image: "/images/website-v1.png",

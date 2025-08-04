@@ -3,7 +3,6 @@ const CategoryEnum = Object.freeze({
   WEBAPP: "Web Apps",
   MOBILEAPP: "Mobile Apps",
   GAME: "Games",
-  RESEARCH: "Research",
 });
 
 const SortEnum = Object.freeze({

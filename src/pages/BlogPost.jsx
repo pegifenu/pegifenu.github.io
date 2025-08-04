@@ -1,29 +1,41 @@
+// src/pages/BlogPost.jsx
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Markdown from "react-markdown";
+import MarkdownRenderer from "../components/MarkdownRenderer";
 
-// Map slugs to markdown filenames
+// Slug to file map
 const slugToFileMap = {
   firstBlog: "firstBlog.md",
-  // add more: "another-slug": "anotherFile.md"
+  anotherPost: "anotherPost.md",
 };
 
 const BlogPost = () => {
   const { slug } = useParams();
   const [markdown, setMarkdown] = useState("");
+  const file = slugToFileMap[slug];
 
   useEffect(() => {
-    const file = slugToFileMap[slug];
     if (!file) return;
-
     fetch(`/blogs/${file}`)
       .then((res) => res.text())
       .then((text) => setMarkdown(text));
-  }, [slug]);
+  }, [file]);
+
+  if (!file) {
+    return (
+      <div className="px-10 py-4 text-white">
+        <div className="mx-auto max-w-3xl">
+          <h1 className="text-xl">404: Blog post not found</h1>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="px-10 py-4 text-white">
-      <Markdown>{markdown}</Markdown>
+      <div className="mx-auto max-w-3xl">
+        <MarkdownRenderer>{markdown}</MarkdownRenderer>
+      </div>
     </div>
   );
 };

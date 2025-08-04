@@ -1,31 +1,40 @@
-import React from "react";
 import { Accordion } from "radix-ui";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 
-import experiences from "../data/resumeItems";
-
 const ResumeCard = ({ experience }) => {
   return (
-    <div className="mb-5 flex w-full flex-col gap-1 overflow-hidden rounded-sm border border-[#3F5475] bg-[#0B0B15] p-3 text-white">
-      <div className="flex flex-row gap-3">
-        <img src={experience.image} alt="Blog Cover" className="h-20 w-20" />
-        <div className="">
-          <h3 className="text-lg font-semibold">{experience.company}</h3>
-          <h4 className="text-md">{experience.title}</h4>
-          <p className="">{experience.description}</p>
-        </div>
-      </div>
-
-      {/* Accordion */}
+    <div className="border-light-blue bg-dark-blue relative mb-5 w-full overflow-hidden rounded-sm border p-3 text-white">
+      {/* Accordion Trigger in top-right corner */}
       <Accordion.Root type="single" collapsible>
         <Accordion.Item value="item-1">
           <Accordion.Header>
-            <Accordion.Trigger className="flex flex-row">
-              <div>Read More</div>
-              <ChevronDownIcon aria-hidden />
+            <Accordion.Trigger className="absolute top-3 right-3 p-1 text-white/50 transition hover:text-white">
+              <ChevronDownIcon className="h-6 w-6 cursor-pointer" aria-hidden />
             </Accordion.Trigger>
           </Accordion.Header>
-          <Accordion.Content>{experience.description}</Accordion.Content>
+
+          <div className="flex flex-row gap-3 pr-10">
+            {" "}
+            {/* leave space for arrow */}
+            <img
+              src={experience.image}
+              alt="Blog Cover"
+              className="h-20 w-20"
+            />
+            <div className="flex-grow">
+              <h3 className="text-lg font-semibold">{experience.company}</h3>
+              <h4 className="text-md italic">{experience.title}</h4>
+              <p>{experience.description}</p>
+            </div>
+          </div>
+
+          <Accordion.Content className="mt-3">
+            <ul className="list-inside list-disc space-y-1 text-white">
+              {experience.bulletList.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </Accordion.Content>
         </Accordion.Item>
       </Accordion.Root>
     </div>

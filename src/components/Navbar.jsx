@@ -21,7 +21,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -36,7 +36,7 @@ const Navbar = () => {
         to={path}
         onClick={() => setIsMenuOpen(false)}
         className={({ isActive }) =>
-          `${className} ${isActive ? "text-white" : "text-white/50 transition duration-150 hover:text-white"}`
+          `${className} ${isActive ? "text-white" : "text-white/50 transition duration-100 hover:text-white"}`
         }
       >
         {label}
@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`sticky top-0 z-40 transition-colors duration-150 ${
+      className={`sticky top-0 z-40 transition-all duration-150 ${
         isSolid || isMenuOpen ? "bg-dark-blue" : "bg-transparent"
       } ${scrolled ? "border-light-blue border-b" : ""}`}
     >

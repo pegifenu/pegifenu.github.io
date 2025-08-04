@@ -14,3 +14,31 @@ body {
   width: 100%;
   height: 100%;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.DialogOverlay[data-state="open"],
+.DialogContent[data-state="open"] {
+  animation: fadeIn 100ms ease-out;
+}
+
+.DialogOverlay[data-state="closed"],
+.DialogContent[data-state="closed"] {
+  animation: fadeOut 100ms ease-in;
+}

@@ -19,7 +19,7 @@ const ProjectNav = ({ filters, setFilters }) => {
               className={`${
                 filters.category === value
                   ? "cursor-pointer text-white"
-                  : "cursor-pointer text-white/50 transition duration-150 hover:text-white"
+                  : "cursor-pointer text-white/50 transition duration-100 hover:text-white"
               }`}
             >
               {value}
