@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
@@ -103,8 +103,30 @@ function App() {
     [],
   );
 
+  const scrollRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onScroll = () => {
+      setScrolled(el.scrollTop > 20);
+      console.log("scrolled");
+    };
+
+    el.addEventListener("scroll", onScroll);
+
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
-    <div className="from-dark-blue to-medium-blue h-screen min-h-screen overflow-auto bg-gradient-to-b">
+    <div
+      ref={scrollRef}
+      className="from-dark-blue to-medium-blue h-screen min-h-screen overflow-auto bg-gradient-to-b"
+    >
       {init && (
         <Particles
           className="absolute inset-0 z-0"
@@ -114,7 +136,7 @@ function App() {
         />
       )}
       <div className="relative z-10">
-        <Navbar />
+        <Navbar scrolled={scrolled} />
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/projects" element={<Projects />} />

@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
-const Navbar = () => {
+const Navbar = ({ scrolled }) => {
   const navLinks = [
     { label: "About", path: "/" },
     { label: "Projects", path: "/projects" },
@@ -11,21 +11,12 @@ const Navbar = () => {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   const page = useLocation();
 
   const onToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const isSolid = ["/projects"].includes(page.pathname) || scrolled;
 
