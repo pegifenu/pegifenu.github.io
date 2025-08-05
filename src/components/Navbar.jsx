@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
-const Navbar = ({ scrolled }) => {
+const Navbar = ({ scrollRef }) => {
   const navLinks = [
     { label: "About", path: "/" },
     { label: "Projects", path: "/projects" },
@@ -11,6 +11,7 @@ const Navbar = ({ scrolled }) => {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const page = useLocation();
 
@@ -18,7 +19,23 @@ const Navbar = ({ scrolled }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const isSolid = ["/projects"].includes(page.pathname) || scrolled;
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onScroll = () => {
+      setIsScrolled(el.scrollTop > 20);
+      console.log("scrolled");
+    };
+
+    el.addEventListener("scroll", onScroll);
+
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const isSolid = ["/projects"].includes(page.pathname) || isScrolled;
 
   const renderNavLinks = (className) =>
     navLinks.map(({ label, path }) => (
@@ -38,7 +55,7 @@ const Navbar = ({ scrolled }) => {
     <div
       className={`sticky top-0 z-40 transition-all duration-150 ${
         isSolid || isMenuOpen ? "bg-dark-blue" : "bg-transparent"
-      } ${scrolled ? "border-light-blue border-b" : ""}`}
+      } ${isScrolled ? "border-light-blue border-b" : ""}`}
     >
       <div className="z-50 flex items-center justify-between px-6 py-2 text-lg text-white">
         <NavLink to="/" className="text-xl">

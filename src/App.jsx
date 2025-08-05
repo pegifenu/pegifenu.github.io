@@ -104,23 +104,6 @@ function App() {
   );
 
   const scrollRef = useRef(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const onScroll = () => {
-      setScrolled(el.scrollTop > 20);
-      console.log("scrolled");
-    };
-
-    el.addEventListener("scroll", onScroll);
-
-    return () => {
-      el.removeEventListener("scroll", onScroll);
-    };
-  }, []);
 
   return (
     <div
@@ -129,14 +112,14 @@ function App() {
     >
       {init && (
         <Particles
-          className="absolute inset-0 z-0"
+          className="fixed inset-0 z-0"
           id="tsparticles"
           particlesLoaded={particlesLoaded}
           options={options}
         />
       )}
       <div className="relative z-10">
-        <Navbar scrolled={scrolled} />
+        <Navbar scrollRef={scrollRef} />
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/projects" element={<Projects />} />
