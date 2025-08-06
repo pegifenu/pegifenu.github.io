@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProfileCard from "../components/ProfileCard";
 
 const About = () => {
@@ -9,18 +10,14 @@ const About = () => {
         <div className="flex flex-col gap-5 text-white">
           <h1 className="text-4xl">pegifenu</h1>
           <p>
-            Hi. I go by pegifenu or polyethylene glycol on the Internet, but you
-            can call me Peg or Glycol. I’m an aspiring software engineer
-            currently pursuing a degree in computer science.
+            Hi. I go by my screen name pegifenu on the Internet, but you can
+            call me Peg or Glycol. I’m an aspiring software engineer currently
+            pursuing a degree in computer science.
           </p>
           <p>
             Outside of computer science, I am interested in mathematics, digital
             2D/3D art/animation, music performance and production, and
             reading/writing good stories.
-          </p>
-          <p>
-            Feel free to contact me if you are interested in working on a
-            project together.
           </p>
         </div>
       </div>

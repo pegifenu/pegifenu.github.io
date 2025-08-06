@@ -42,11 +42,7 @@ const ProfileCard = () => {
 
       <div className="flex flex-col gap-2">
         <div>
-          <p className="font-bold">PROFESSIONAL INQUIRIES</p>
-          <p></p>
-        </div>
-        <div>
-          <p className="font-bold">OTHER</p>
+          <p className="font-bold">EMAIL</p>
           <p>pegifenu@gmail.com</p>
         </div>
       </div>
