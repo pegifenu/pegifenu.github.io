@@ -1,6 +1,17 @@
-import { CategoryEnum, SortEnum, TagEnum } from "../constants";
+import { TagEnum } from "../constants";
 
 const experiences = [
+  {
+    image: "/images/aops.svg",
+    company: "Art of Problem Solving",
+    title: "Online School Grader",
+    location: "Online",
+    startDate: "2025-09-10",
+    endDate: "",
+    description: "",
+    bulletList: [],
+    tags: [TagEnum.LATEX],
+  },
   {
     image: "/images/acm.png",
     company: "UCLA ACM",

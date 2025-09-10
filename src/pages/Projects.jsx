@@ -85,42 +85,44 @@ const Projects = () => {
 
       <Dialog.Root>
         <div className="z-10 mx-10">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 py-4 sm:grid-cols-2 lg:grid-cols-3">
-            <AnimatePresence mode="popLayout" initial={false}>
-              {displayedProjects.map((project, index) => (
-                <Dialog.Trigger asChild key={project.title}>
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0 }}
-                    transition={{ type: "spring", bounce: 0, duration: 0.3 }}
-                    onClick={() => setSelectedProject(project)}
-                    whileHover={{ y: -8 }}
-                  >
-                    <ProjectCard
-                      key={index}
-                      image={project.image}
-                      title={project.title}
-                      description={project.summary}
-                      tags={project.tags}
-                    />
-                  </motion.div>
-                </Dialog.Trigger>
-              ))}
-              {displayedProjects.length === 0 && (
-                <motion.div
-                  key="no-projects"
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="text-white"
-                >
-                  No projects were found under this filter.
-                </motion.div>
-              )}
-            </AnimatePresence>
+          <div className="mx-auto max-w-6xl py-4">
+            {displayedProjects.length === 0 && (
+              <motion.div
+                key="no-projects"
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-white"
+              >
+                No projects were found under this filter.
+              </motion.div>
+            )}
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <AnimatePresence mode="popLayout" initial={false}>
+                {displayedProjects.map((project, index) => (
+                  <Dialog.Trigger asChild key={project.title}>
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0 }}
+                      transition={{ type: "spring", bounce: 0, duration: 0.3 }}
+                      onClick={() => setSelectedProject(project)}
+                      whileHover={{ y: -8 }}
+                    >
+                      <ProjectCard
+                        key={index}
+                        image={project.image}
+                        title={project.title}
+                        description={project.summary}
+                        tags={project.tags}
+                      />
+                    </motion.div>
+                  </Dialog.Trigger>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 

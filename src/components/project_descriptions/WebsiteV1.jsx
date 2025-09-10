@@ -1,7 +1,13 @@
 const WebsiteV1 = () => {
   return (
     <div>
-      <a>https://pegifenu.github.io/</a>
+      <a
+        href="https://pegifenu.github.io/old-site"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        https://pegifenu.github.io/old-site
+      </a>
     </div>
   );
 };

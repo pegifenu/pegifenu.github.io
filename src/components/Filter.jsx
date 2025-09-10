@@ -42,7 +42,7 @@ const Filter = ({ filters, setFilters }) => {
       <input
         type="text"
         placeholder="Search projects..."
-        className="w-full rounded-sm bg-white px-2 py-2 text-black placeholder-gray-400 md:min-w-70"
+        className="h-10 w-full rounded-sm border border-gray-300 bg-white px-2 text-black placeholder-gray-400 md:min-w-70"
         value={filters.search}
         onChange={updateSearch}
       />
@@ -52,14 +52,14 @@ const Filter = ({ filters, setFilters }) => {
       <div className="relative w-full md:min-w-30" ref={sortRef}>
         <button
           onClick={() => setSortDropdownOpen((open) => !open)}
-          className="flex h-10 w-full items-center justify-between rounded-sm border border-gray-300 bg-white px-3 text-sm text-black"
+          className="flex h-10 w-full cursor-pointer items-center justify-between rounded-sm border border-gray-300 bg-white px-3 text-sm text-black"
         >
           {filters.sort}
           <ChevronDownIcon />
         </button>
 
         {sortDropdownOpen && (
-          <div className="absolute z-20 mt-1 w-full overflow-hidden rounded bg-white shadow">
+          <div className="absolute z-20 mt-1 w-full overflow-hidden rounded border border-gray-300 bg-white">
             {Object.entries(SortEnum).map(([key, value]) => (
               <div
                 key={key}
@@ -81,14 +81,14 @@ const Filter = ({ filters, setFilters }) => {
       <div className="relative w-full md:min-w-30" ref={tagRef}>
         <button
           onClick={() => setTagDropdownOpen((open) => !open)}
-          className="flex h-10 w-full items-center justify-between rounded-sm border bg-white px-3 text-sm text-black"
+          className="flex h-10 w-full cursor-pointer items-center justify-between rounded-sm border border-gray-300 bg-white px-3 text-sm text-black"
         >
           {`${filters.tags.length} tag${filters.tags.length != 1 ? "s" : ""}`}
           <ChevronDownIcon />
         </button>
 
         {tagDropdownOpen && (
-          <div className="absolute z-20 mt-1 max-h-48 w-full overflow-auto rounded-md bg-white shadow-lg">
+          <div className="absolute z-20 mt-1 max-h-48 w-full overflow-auto rounded-md border border-gray-300 bg-white">
             {Object.entries(TagEnum).map(([key, value]) => (
               <div
                 key={key}
