@@ -22,7 +22,7 @@ const ResumeCard = ({ experience }) => {
             </Accordion.Trigger>
           </Accordion.Header>
 
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-col gap-3 md:flex-row">
             <img
               src={experience.image}
               alt="Item Cover"

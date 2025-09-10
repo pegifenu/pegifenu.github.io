@@ -1,5 +1,3 @@
-import React from "react";
-
 import ResumeCard from "../components/ResumeCard";
 
 import experiences from "../data/resumeItems";
@@ -11,7 +9,7 @@ const Experience = () => {
         <div className="flex flex-col">
           {experiences.map((experience, index) => (
             <div key={index} className="flex flex-row gap-10">
-              <div className="flex flex-col items-center">
+              <div className="hidden flex-col items-center md:flex">
                 {/* Dot */}
                 <div className="bg-light-blue h-5 w-5 shrink-0 rounded-full border-4 border-white"></div>
 
