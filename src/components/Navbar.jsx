@@ -17,6 +17,7 @@ const Navbar = ({ scrollRef }) => {
 
   const onToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    console.log(isMenuOpen);
   };
 
   useEffect(() => {
@@ -52,39 +53,41 @@ const Navbar = ({ scrollRef }) => {
     ));
 
   return (
-    <div
-      className={`sticky top-0 z-40 px-10 transition-all duration-150 ${
-        isSolid || isMenuOpen ? "bg-dark-blue" : "bg-transparent"
-      } ${isScrolled ? "border-light-blue border-b" : ""}`}
-    >
-      <div className="z-50 mx-auto flex max-w-6xl items-center justify-between py-2 text-lg text-white">
-        <NavLink to="/" className="text-xl">
-          pegifenu
-        </NavLink>
+    <div className="sticky top-0 z-40">
+      <div
+        className={`px-10 transition-all duration-150 ${
+          isSolid || isMenuOpen ? "bg-dark-blue" : "bg-transparent"
+        } ${isScrolled && !isMenuOpen ? "border-light-blue border-b" : ""}`}
+      >
+        <div className="z-50 mx-auto flex max-w-6xl items-center justify-between py-2 text-lg text-white">
+          <NavLink to="/" className="text-xl">
+            pegifenu
+          </NavLink>
 
-        {/* Hamburger Icon (mobile only) */}
-        <button
-          className="text-white hover:cursor-pointer md:hidden"
-          onClick={onToggleMenu}
-          aria-label="Toggle menu"
-        >
-          <HamburgerMenuIcon className="h-6 w-6" />
-        </button>
+          {/* Hamburger Icon (mobile only) */}
+          <button
+            className="text-white hover:cursor-pointer md:hidden"
+            onClick={onToggleMenu}
+            aria-label="Toggle menu"
+          >
+            <HamburgerMenuIcon className="h-6 w-6" />
+          </button>
 
-        {/* Desktop links */}
-        <div className="hidden gap-7 md:flex">
-          {renderNavLinks("cursor-pointer")}
+          {/* Desktop links */}
+          <div className="hidden gap-7 md:flex">
+            {renderNavLinks("cursor-pointer")}
+          </div>
         </div>
       </div>
       {/* Mobile menu */}
       <div
-        className={`border-light-blue bg-dark-blue absolute w-full border-b transition duration-150 ease-in-out md:hidden ${
+        className={`border-light-blue bg-dark-blue absolute w-full border-b transition-all duration-150 md:hidden ${
           isMenuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
       >
-        <div className="flex flex-col gap-3 px-6 py-4">
+        <div className="flex flex-col gap-3 px-10 py-4">
           {renderNavLinks("cursor-pointer block")}
         </div>
       </div>
