@@ -1,5 +1,3 @@
-import ReactMarkdown from "react-markdown";
-
 const BlogCard = ({ image, title, date, excerpt, tags }) => {
   return (
     <>

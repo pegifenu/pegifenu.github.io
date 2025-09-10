@@ -53,11 +53,11 @@ const Navbar = ({ scrollRef }) => {
 
   return (
     <div
-      className={`sticky top-0 z-40 transition-all duration-150 ${
+      className={`sticky top-0 z-40 px-10 transition-all duration-150 ${
         isSolid || isMenuOpen ? "bg-dark-blue" : "bg-transparent"
       } ${isScrolled ? "border-light-blue border-b" : ""}`}
     >
-      <div className="z-50 flex items-center justify-between px-6 py-2 text-lg text-white">
+      <div className="z-50 mx-auto flex max-w-6xl items-center justify-between py-2 text-lg text-white">
         <NavLink to="/" className="text-xl">
           pegifenu
         </NavLink>
