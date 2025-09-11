@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import ProjectNav from "../components/ProjectNav";
 import ProjectCard from "../components/ProjectCard";
 import ProjectDialog from "../components/ProjectDialog";
+import Footer from "../components/Footer";
 
 import projects from "../data/projects";
 
@@ -84,7 +85,7 @@ const Projects = () => {
       <ProjectNav filters={filters} setFilters={setFilters} />
 
       <Dialog.Root>
-        <div className="z-10 mx-10">
+        <div className="z-10 px-5">
           <div className="mx-auto max-w-6xl py-4">
             {displayedProjects.length === 0 && (
               <motion.div
@@ -128,6 +129,8 @@ const Projects = () => {
 
         {selectedProject && <ProjectDialog selectedProject={selectedProject} />}
       </Dialog.Root>
+
+      <Footer />
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import ProfileCard from "../components/ProfileCard";
+import Footer from "../components/Footer";
 
 const About = () => {
   return (
-    <div className="px-10">
+    <div className="px-5">
       <div className="rows-2 mx-auto flex max-w-6xl flex-col gap-10 py-20 md:columns-2 md:flex-row">
         <ProfileCard />
 
@@ -20,6 +21,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

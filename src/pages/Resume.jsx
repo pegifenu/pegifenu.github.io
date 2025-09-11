@@ -1,10 +1,11 @@
 import ResumeCard from "../components/ResumeCard";
+import Footer from "../components/Footer";
 
 import experiences from "../data/resumeItems";
 
 const Experience = () => {
   return (
-    <div className="mx-10">
+    <div className="px-5">
       <div className="mx-auto max-w-6xl py-10">
         <div className="flex flex-col">
           {experiences.map((experience, index) => (
@@ -25,6 +26,7 @@ const Experience = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

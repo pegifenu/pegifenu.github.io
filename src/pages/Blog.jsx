@@ -1,13 +1,13 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import BlogCard from "../components/BlogCard";
-import { TagEnum } from "../constants";
+import Footer from "../components/Footer";
+
 import { blogs } from "../data/blogs";
 
 const Blog = () => {
   return (
-    <div className="mx-10">
+    <div className="px-5">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 py-10">
         {blogs.map((blog, index) => (
           <Link to={`/blog/${blog.slug}`} key={index}>
@@ -21,6 +21,7 @@ const Blog = () => {
           </Link>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

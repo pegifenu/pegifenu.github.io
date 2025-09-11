@@ -1,5 +1,3 @@
-import { CategoryEnum, SortEnum, TagEnum } from "../constants";
-
 export const blogs = [
   {
     image: "https://placehold.co/200x200",

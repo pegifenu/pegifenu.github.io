@@ -12,7 +12,6 @@ import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import Now from "./pages/Now";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -127,7 +126,6 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/now" element={<Now />} />
         </Routes>
       </div>
     </div>

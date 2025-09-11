@@ -55,7 +55,7 @@ const Navbar = ({ scrollRef }) => {
   return (
     <div className="sticky top-0 z-40">
       <div
-        className={`px-10 transition-all duration-150 ${
+        className={`px-5 transition-all duration-150 ${
           isSolid || isMenuOpen ? "bg-dark-blue" : "bg-transparent"
         } ${isScrolled && !isMenuOpen ? "border-light-blue border-b" : ""}`}
       >

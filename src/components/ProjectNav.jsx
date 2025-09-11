@@ -4,7 +4,7 @@ import { CategoryEnum } from "../constants";
 
 const ProjectNav = ({ filters, setFilters }) => {
   return (
-    <div className="bg-dark-blue border-light-blue border-b px-10">
+    <div className="bg-dark-blue border-light-blue border-b px-5">
       <div className="z-10 mx-auto flex max-w-6xl flex-col gap-2 text-white">
         <div className="flex flex-col justify-between gap-4 py-2 md:flex-row">
           <div className="text-2xl font-bold">Projects</div>
