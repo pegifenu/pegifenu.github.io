@@ -103,13 +103,8 @@ function App() {
     [],
   );
 
-  const scrollRef = useRef(null);
-
   return (
-    <div
-      ref={scrollRef}
-      className="from-dark-blue to-medium-blue h-screen min-h-screen overflow-auto bg-gradient-to-b"
-    >
+    <div className="from-dark-blue to-medium-blue min-h-screen bg-gradient-to-b">
       {init && (
         <Particles
           className="fixed inset-0 z-0"
@@ -119,7 +114,7 @@ function App() {
         />
       )}
       <div className="relative z-10">
-        <Navbar scrollRef={scrollRef} />
+        <Navbar />
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/projects" element={<Projects />} />

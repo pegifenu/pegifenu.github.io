@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
-const Navbar = ({ scrollRef }) => {
+const Navbar = () => {
   const navLinks = [
     { label: "About", path: "/" },
     { label: "Projects", path: "/projects" },
@@ -21,18 +21,14 @@ const Navbar = ({ scrollRef }) => {
   };
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
     const onScroll = () => {
-      setIsScrolled(el.scrollTop > 20);
-      console.log("scrolled");
+      setIsScrolled(window.scrollY > 10); // Detect if the user has scrolled down 20px
     };
 
-    el.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll);
 
     return () => {
-      el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
@@ -87,7 +83,7 @@ const Navbar = ({ scrollRef }) => {
             : "pointer-events-none opacity-0"
         }`}
       >
-        <div className="flex flex-col gap-3 px-10 py-4">
+        <div className="flex flex-col gap-3 px-5 py-4">
           {renderNavLinks("cursor-pointer block")}
         </div>
       </div>
