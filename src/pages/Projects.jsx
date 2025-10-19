@@ -86,7 +86,7 @@ const Projects = () => {
 
       <Dialog.Root>
         <div className="z-10 px-5">
-          <div className="mx-auto max-w-6xl py-4">
+          <div className="mx-auto max-w-6xl py-8">
             {displayedProjects.length === 0 && (
               <motion.div
                 key="no-projects"
@@ -99,7 +99,7 @@ const Projects = () => {
                 No projects were found under this filter.
               </motion.div>
             )}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <AnimatePresence mode="popLayout" initial={false}>
                 {displayedProjects.map((project, index) => (
                   <Dialog.Trigger asChild key={project.title}>

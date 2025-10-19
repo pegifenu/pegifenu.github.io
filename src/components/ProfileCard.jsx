@@ -35,7 +35,7 @@ const ProfileCard = () => {
     <div className="flex w-full flex-col gap-5 overflow-hidden rounded-sm border border-[#3F5475] bg-[#0B0B15] px-10 py-10 text-white">
       <div className="max-w-70 place-self-center overflow-hidden rounded-sm">
         <img
-          src="https://placehold.co/500x500"
+          src="/images/lilguy.jpg"
           className="w-full object-cover"
         ></img>
       </div>

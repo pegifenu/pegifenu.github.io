@@ -17,7 +17,7 @@ const ProjectDialog = ({ selectedProject }) => {
             </Dialog.Close>
           </div>
 
-          <Dialog.Description className="whitespace-pre-line text-white">
+          <Dialog.Description className="text-white break-words">
             <selectedProject.DescriptionComponent />
           </Dialog.Description>
           <Dialog.Close />
